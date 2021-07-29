@@ -1,0 +1,16 @@
+.nextsong {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+.dropcont > i {
+  font-size: 26px;
+
+}
+.nextsong .dropdown {
+  left: -130px;
+}
+.nextsong .activedrop .dropdown {
+  top: 30px
+
+} 

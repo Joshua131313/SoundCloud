@@ -1,0 +1,141 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow-y: auto;
+  border-radius: 0 20px 20px 0;
+}
+.sidebar::-webkit-scrollbar {
+  width: 0
+}
+.sidebarlinks {
+  display: flex;
+  flex-direction: column
+}
+.linktitle {
+  margin: 25px 0;
+  font-size: 12px
+}
+.sidebarlink { 
+  color: #000;
+  padding: 12px;
+  border-radius: 15px;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+  font-size: 14px;
+  margin-top: 5px
+} 
+.sidebarlink i {
+  color: var(--theme-color);
+}
+.activelink, .sidebarlink:hover {
+  background-color: #fff;
+}
+.sidebar button {
+  margin-top: 20px
+}
+.addsongmodal {
+  width: 400px;
+  max-width: 90%;
+  height: 600px;
+  max-height: 90vh;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  overflow-y: auto;
+  opacity: 0;
+  transition: all 0.3s;
+  top: 50px
+}
+.modal-enter-done .addsongmodal {
+  opacity: 1;
+  top: 0
+}
+.addsongmodal::-webkit-scrollbar {
+  width: 0
+}
+.songinputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px
+}
+.songuploader {
+  height: 200px;
+  background-color: var(--light);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  padding: 10px
+}
+.songuploader i {
+  color: #000;
+  font-size: 30px;
+
+}
+.imguploader {
+  background-color: #fff;
+  border: solid 3px var(--theme-color);
+  overflow: hidden;
+  padding: 0
+}
+.songuploader  h4 {
+  color: #000;
+  margin-top: 10px;
+  font-size: 12px
+}
+.imguploader h4 {
+  color: var(--theme-color);
+}
+.imguploader i {
+  color: var(--theme-color)
+}
+.uploadersm {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px
+}
+.uploadersm > label {
+  width: 100%
+}
+.imguploader div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
+}
+.imguploader div img {
+  width: 100%;
+  height: 100%;
+}
+.addcontrols button {
+  width: 100%;
+  margin-top: 20px
+}
+.songcontup {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
+}
+.songcontup img {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%)
+}

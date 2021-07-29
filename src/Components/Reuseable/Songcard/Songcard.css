@@ -1,0 +1,110 @@
+.songcard {
+  width: 200px;
+}
+.songcard:hover .waves {
+  display: none
+}
+.songimgplaybtn {
+  width: 100%;
+  height: 200px
+}
+.songimgplaybtn img, .songimgplaybtn .imgskeltonload  {
+  border-radius: 10px
+}
+
+.songimgplaybtn img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s
+}
+.songimgplaybtn i {
+  color: var(--theme-color);
+  font-size: 30px;  
+  opacity: 0;
+  transition: all 0.3s
+}
+.songcard:hover .songimgplaybtn i {
+  opacity: 1;
+}
+
+.songcard:hover img {
+  filter: brightness(90%)
+}
+.songinfocard {
+    padding: 0 8px
+
+}
+.songinfocard h3 {
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.songinfocard > small {
+  color: gray
+}
+.songcard .dropdown {
+  left: initial;
+  top: -80px;
+  right: 0
+}
+.songcard .activedrop .dropdown {
+  top: -145px;
+  right: 0;
+}
+.stripsongcard {
+  justify-content: space-between;
+  width: 400px
+}
+.stripsongcard audio {
+  max-width: 0;
+  max-height: 0
+}
+.stripsongcard  div:not(.dropdown, .rightsect) {
+  align-items: center;
+  gap: 10px
+}
+.stripsongcard .rightsect  {
+  gap: 4px
+}
+.stripsongcard h4 {
+  font-size: 13px
+}
+.stripsongcard small {
+  font-size: 11px;
+  color: gray
+}
+.stripsongcard .leftsect {
+  min-height: 30px;
+}
+.leftsect span {
+  min-width: 40px;
+  justify-content: center;
+  display: flex;
+  color: var(--theme-color)
+}
+.stripsongcard i {
+  color: var(--theme-color)
+}
+.rightstripcard  .time {
+  font-size: 12px;
+  color: gray
+}
+.stripsongcard .dropdown {
+  right: 0
+}
+.stripsongcard .activedrop .dropdown {
+  top: 30px
+}
+#root .stripsongcard .rightstripcard  {
+  gap: 20px
+}
+.imgstripsong {
+  width: 55px;
+  height: 55px;
+}
+.imgstripsong img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px
+}

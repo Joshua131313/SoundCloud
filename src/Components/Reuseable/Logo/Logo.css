@@ -1,0 +1,9 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px
+}
+.logo i {
+  font-size: 25px;
+  color: #000
+}

@@ -1,0 +1,108 @@
+
+.login {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  height: 100vh;
+  width: 1200px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 20px;
+  max-width: 90%;
+}
+.login > div {
+  height: 700px;
+  max-height: 90vh;
+  top: 50%;
+  transform: translateY(-50%)
+}
+.loginscreen {
+  height: 100%;
+  border-radius: 10px;
+  padding: 40px;
+
+}
+.login h2 {
+  margin-top: 20px
+}
+.logincontrols {
+  gap: 10px;
+  margin-top: 30px
+}
+.alreadyhaveaccount {
+  
+}
+.subbtns {
+  margin: 10px 0;
+  justify-content: space-between;
+  font-size: 12px
+}
+.subbtns span {
+  cursor: pointer;
+  transition: all 0.3s
+}
+.subbtns span:hover {
+  color: var(--theme-color)
+}
+.loginimg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.custombtns {
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px
+}
+.googlebtn{
+  width: 220px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  max-width: 100%;
+}
+.facebookbtn {
+  width: 220px;
+  background-color: #1877f2;
+  color: #fff
+}
+.googlebtn:active {
+  transform: scale(0.98)
+}
+.googlebtn:hover {
+  background-color: rgb(243, 243, 243)
+}
+.facebookbtn:hover {
+  color: #1877f2;
+  background-color: #fff
+}
+.googlebtn span {
+  font-size: 13px
+}
+.googlebtn img {
+  width: 25px;
+  height: 25px
+}
+.othermethods  > span {
+  font-size: 12px
+}
+.login .appbtn:active  {
+  transform: scale(0.99)
+}
+.error {
+  color: var(--red);
+  font-size: 12px
+}
+@media (max-width: 760px) {
+  .login {
+    display: block
+  }
+  .loginimg {
+    display: none
+  }
+}

@@ -1,0 +1,344 @@
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;  
+  font-family: 'Nunito', sans-serif;
+  overflow: hidden;
+}
+
+
+.app {
+  min-height: 100vh
+} 
+:root {
+  --light: #c7b1f0;
+  --light-gray: #f8f8f8;
+  --shadow: 0px 0px 7px 1px #333;
+  --light-shadow:  0px 0px 7px 1px rgb(238, 238, 238);
+  --theme-color: #b199e0;
+  --theme-second: #44b7ff;
+  --gray: rgb(251, 251, 251);
+  --light-blue: #ebf5ff;
+  --gray-text: rgb(199, 199, 199);
+  --red: #e50914;
+  --green: rgb(25, 221, 25);
+  --overlay:  rgba(0,0,0,.5);
+  --gray-shadow: 0px 0px 7px 1px rgb(49 49 49);
+  --transparent: #ffffff5b
+}
+.firebaseloadingauth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%)
+
+}
+.firebaseloadingauth {
+  font-size: 30px
+}
+.firebaseloadingauth .logo {
+  transform: translateY(-120px)
+}
+.firebaseloadingauth i {
+  font-size: 30px;
+}
+.imgskeltonload {
+  border-radius: 10px
+}
+.firebaseloadingauth img {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+}
+.closeicon {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 35px
+}
+.appcont {
+  background: linear-gradient(335deg, rgba(213,204,239,1) 0%, rgba(200,219,228,1) 57%, rgba(225,204,207,1) 100%);
+  min-height: 100vh;
+  max-height: 100vh;
+  display: grid;
+  grid-template-columns: 200px 1fr 250px;
+  grid-template-rows: 1fr 80px;
+  padding: 20px;
+  padding-bottom: 0;
+  gap: 20px
+}
+@media (max-width: 910px) {
+ .appcont {
+   grid-template-columns: 200px 1fr
+ }
+  .activity {
+    display: none
+  }
+}
+a {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.3s;
+}
+.app .fa-exclamation-circle {
+  color: var(--red);
+}
+.app .fa-check-circle {
+  color: var(--green)
+}
+.app .fa-exclamation-triangle {
+  color: rgb(255, 212, 22)
+}
+.capitalize {
+  text-transform: capitalize
+}
+.graytext {
+  color: var(--gray-text);
+}
+.centeredt {
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  position: absolute
+}
+p,h1,h2,h3,h4,h5,h6,a {
+  margin: 0;
+  padding: 0;
+}* {
+  box-sizing: border-box;
+  position: relative;
+}
+img {
+  object-fit: cover;
+}
+input, button {
+  outline: none;
+  transition: all 0.3s;
+  border-radius: 0
+}
+p {
+  outline: none;
+}
+hr {
+  border: none;
+  background-color: #f0f0f2;
+  width: 90%;
+  height: 1px;
+}
+.spacer1 {
+  height: 100px
+}
+
+i {
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #000
+}
+textarea::-webkit-scrollbar {
+  width: 5px
+}
+time {
+  text-transform:capitalize;
+ }
+button {
+  cursor: pointer;
+  border: solid 2px transparent;
+  transition: all 0.3s
+}
+
+::selection {
+  background-color:var(--theme-color);
+  color: white;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f8f8f8;
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--theme-color);
+  border-radius: 10px;
+}
+input, select {
+  border: none;
+  padding: 10px;
+  background-color: #f8f8f8;
+  outline: none  
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.fillcontainer {
+  width: 100%;
+  height: 100%;
+}
+.MuiButton-label {
+  height: 100%
+}
+.MuiTouchRipple-root {
+  opacity: 0.2;
+}
+.flexrow {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px
+}
+
+.notifications-wrapper {
+  right: 0;
+  display: flex;
+  flex-direction: column-reverse
+}
+.notifications-tr {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.notifications-wrapper .notification-dismiss {
+  display: none
+}
+
+.notification-message {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.notification-message > div {
+  display: flex;
+  align-items: center
+}
+.notification-message > div i {
+  margin-right: 5px;
+}
+.notifications-tl {
+  min-width:420px;
+}
+.notification-message .fa-times {
+  display: flex;
+  align-items: center;
+}
+.notifications-tl .themeBtn{
+  width: 80px;
+  font-size: 10px;
+  padding: 0;
+  height: 20px;
+  border-radius: 5px;
+  margin-left: 5px;
+  z-index: 111111;
+}
+.notifications-tl .themeBtn:hover {
+  background-color: var(--theme-second)
+} 
+.notic i {
+  color: var(--theme-color);
+}
+
+.googlepay button, .googlepay div {
+  width: 100%
+}
+.accordionsummary i {
+  font-size: 14px
+}
+.rskeletonimg {
+  animation: skeleton 2.2s infinite
+}
+.br {
+  border-radius: 5px
+}
+.flex {
+  display: flex;
+}
+@keyframes skeleton {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1
+  }
+}
+.sb {
+  justify-content: space-between
+}
+.accordiontab .MuiPaper-root  {
+  border-radius: 0;
+  background-color: #303030;
+  color: #fff
+}
+.accordiontab i {
+  color: #fff;
+}
+.Mui-expanded i::before {
+  content: '\f00d'
+}
+.accordiontab .accordionsummary {
+ /* box-shadow: none;
+ border-radius: 0 */
+}
+details > summary {
+  /* list-style-type: none;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer; */
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary::before {
+  /* content: '\f067';
+  font-family: 'Font Awesome 5 Pro';
+  margin-right: 10px */
+}
+
+details[open] > summary::before {
+  /* content: '\f068';
+  font-family: 'Font Awesome 5 Pro' */
+}
+
+details {
+  /* border: solid 1px #fff;
+  color: #fff;
+  border-radius: 5px; */
+  
+}
+
+details[open] > summary {
+
+}
+.notification  {
+  border-radius: 10px !important
+}
+.flexcol {
+  display: flex;
+  flex-direction: column
+}
+.flex {
+  display: flex;
+}

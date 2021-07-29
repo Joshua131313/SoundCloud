@@ -1,0 +1,38 @@
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.checkbox .chk {
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+}
+.checkbox i {
+  font-size: 12px;
+  color: var(--theme-color);
+}
+.checkbox .checkboxcont{
+  width: 15px;
+  height: 15px;
+  border: solid 1px #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+.checked .checkboxcont {
+  border: solid 1px var(--theme-color)
+}
+.chk .checkboxcont i {
+  opacity: 0;
+}
+.checked .checkboxcont i {
+  opacity: 1;
+  color: var(--theme-color)
+}
+
+.checkbox div:first-of-type span {
+  font-size: 12px;
+}
