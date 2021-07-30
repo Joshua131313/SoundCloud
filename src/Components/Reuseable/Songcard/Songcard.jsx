@@ -23,16 +23,15 @@ const Songcard = ({song}) =>{
     }
   }
 
-
   return (
 
     <div className="songcard flexcol">
       <div className="songimgplaybtn">
-       <Imgloaded img={song.img} />
+       <Imgloaded img={song?.img} />
       <Listening song={song}>
         {
           ({AddtoListening})=> (
-            <i  className={`fal fa-${determinePlaying()?'pause':'play'} centeredt`} onClick={()=> {AddtoListening()}}></i>
+            <i  className={`fal fa-${determinePlaying(listening, song, paused)?'pause':'play'} centeredt`} onClick={()=> {AddtoListening()}}></i>
           )
         }
       </Listening>
@@ -40,10 +39,10 @@ const Songcard = ({song}) =>{
        </div>
       <div className="songinfocard">
         <h3>
-          <span>{song.title}</span>
+          <span>{song?.title}</span>
           <Dropdown song={song} />
         </h3>
-        <small>{song.singer}</small>
+        <small>{song?.singer}</small>
       </div>
     </div>
   )

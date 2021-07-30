@@ -114,7 +114,7 @@
   align-items: center;
   flex-direction: column
 }
-.imguploader div img {
+#root .imguploader div img {
   width: 100%;
   height: 100%;
 }
@@ -138,4 +138,100 @@
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%)
+}
+.addsongs {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  cursor: pointer;
+  align-items: center
+}
+.addsongs span {
+  color: #757575
+
+}
+.addsongs i {
+  margin-right: 5px;
+
+}
+.addsongs:hover  i, .activeaddsongs i {
+  color: var(--theme-color);
+}
+#root .addsongsmodal  {
+  width: 400px;
+  height: 600px;
+  max-height: 90vh;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  border-radius: 10px;
+  background-color:rgb(255, 255, 255);
+  flex-direction: column;
+}
+.innersongsmodal {
+  width: 370px;
+  height: 500px;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: var(--light-shadow);
+  border-radius: 10px;
+}
+.songsselect {
+  height: 340px;
+  overflow-y: auto
+}
+#root .addsongsmodal.modal-enter-done {
+  opacity: 1;
+  pointer-events: initial;
+}
+.addsongsmodal .stripsongcard  {
+  width: 100%;
+  gap: 20px
+}
+.addsongsmodal h4 {
+  font-size: 11px;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+.songsselect {
+  gap: 15px;
+
+}
+.songsselect::-webkit-scrollbar {
+  width: 0
+}
+.closeicon {
+  z-index: 100;
+}
+.addsongstitle {
+  gap: 10px;
+  margin-bottom: 20px
+}
+.songsselect .dropcont {
+  display: none
+}
+.addsongs > div {
+  max-width: 270px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap
+}
+.addalbummodal .uploadersm {
+  display: flex;
+  height: 360px
+
+}
+.addalbummodal .uploadersm * {
+  height: 100%
+}
+#root .imguploader div  * {
+  height: initial
 }

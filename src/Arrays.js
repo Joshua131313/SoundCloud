@@ -6,21 +6,21 @@ export const sidebarlinks = [
   {
     link: '',
     icon: 'search-plus',
-    component: '',
+    component: 'Foryou',
     filter: 'foryou',
     text: 'For You'
   },
   {
     link: 'library',
     icon: 'music-alt',
-    component: '',
+    component: 'Library',
     filter: "albums",
     text: 'Library'
   },
   {
     link: 'radio-station',
     icon: 'signal-stream',
-    component: '',
+    component: 'Radio',
     filter: 'radio',
     text: 'Radio Station'
   },
@@ -30,28 +30,28 @@ export const sidebarlinks = [
   {
     link: 'liked-songs',
     icon: 'heart',
-    component: '',
+    component: 'Liked',
     filter: 'liked',
     text: 'Liked Songs'
   },
   {
     link: 'my-albums',
     icon: 'music',
-    component: '',
+    component: 'Albums',
     filter: 'my-albums',
     text: 'Albums'
   },
   {
     link: 'my-artists',
     icon: 'microphone-alt',
-    component: '',
+    component: 'Artists',
     filter: 'myartists',
     text: `Artists`
   },
   {
     link: 'recent',
     icon: 'clock',
-    component: '',
+    component: 'Recent',
     filter: 'recent',
     text: `Recent`
   },
@@ -61,14 +61,14 @@ export const sidebarlinks = [
   {
     link: 'pop',
     icon: 'music-alt',
-    component: '',
+    component: 'Genres',
     filter: 'pop',
     text: `Pop`
   },
   {
     link: 'country',
     icon: 'music-alt',
-    component: '',
+    component: 'Genres',
     filter: 'country',
     text: `Country`
   }

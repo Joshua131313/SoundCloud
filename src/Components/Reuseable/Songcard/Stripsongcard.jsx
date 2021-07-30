@@ -9,7 +9,7 @@ import Listening from '../Listening/Listening'
 import Imgloaded from '../Imgloaded/Imgloaded'
 
 const Stripsongcard = (props) => {
-  const {song, i, img=true} = props
+  const {song, i, img=false, albumbtn, setSsongs, ssongs} = props
   const {listening, saved, paused} = useContext(ContextApp)
   let [duration, setDuration] = useState(0)
   let songaudio = useRef()
@@ -42,21 +42,39 @@ const Stripsongcard = (props) => {
          </>
       )
     }
-
-
   }
+
+  const handlePushSong = () => {
+    let tempstate = [...ssongs]
+    tempstate.push(song.id)
+    setSsongs(tempstate)
+  }
+  const handleRemoveSong = () => {
+    let tempstate = [...ssongs]
+    tempstate.forEach(songc=> {
+      if(songc === song.id) {
+        let index = tempstate.indexOf(songc)  
+        tempstate.splice(index, 1)
+      }
+    })
+    setSsongs(tempstate)
+  }
+
   return (
     <div className="stripsongcard flex">
       <div className="leftstripcard flex">
         <div className="leftsect flex">
             {determineRender()}
-             <Listening song={song}>
-        {
-          ({AddtoListening})=> (
-            <i  className={`fal fa-${determinePlaying(listening, song, paused)?'pause':'play'} `} onClick={()=> {AddtoListening()}}></i>
-          )
-        }
-      </Listening>
+            {albumbtn? 
+              <i className={`fal fa-${ssongs.includes(song.id)?'minus':'plus'}`} onClick={()=> ssongs.includes(song.id)?handleRemoveSong():handlePushSong()}></i>
+              :
+              <Listening song={song}>
+                {
+                  ({AddtoListening})=> (
+                    <i  className={`fal fa-${determinePlaying(listening, song, paused)?'pause':'play'} `} onClick={()=> {AddtoListening()}}></i>
+                  )
+                }
+              </Listening>}
         </div>
         <div className="rightsect flexcol">
           <h4>{song.title}</h4>

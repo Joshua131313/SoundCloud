@@ -59,7 +59,7 @@ export function AddToFavs(song, saved, user) {
   }
 }
 export function determinePlaying (listening, song, paused) {
-  if(listening.song === song.id) {
+  if(listening?.song === song?.id) {
     if(paused) {
       return false
     }
@@ -71,3 +71,41 @@ export function determinePlaying (listening, song, paused) {
     return false
   }
 }
+
+export function AddToAlbum(song, album, user, albums) {
+    albums.forEach(albumc=> {
+      if(albumc.id === album.id) {
+        let index = albums.indexOf(albumc)
+        if(!album.songs.includes(song)) {
+          albums[index].songs.push(song)
+        }
+        else {
+         albums[index].songs.forEach(songc=> {
+           if(songc === song) {
+             let songindex = albums[index].songs.indexOf(songc)
+             albums[index].songs.splice(songindex, 1)
+           }
+         })
+        }
+        db.collection('songs').doc('albums').update({
+          albums: albums
+        })
+      }
+    })
+
+
+}
+export function AddAlbum() {}
+
+export function getSongById(id, songs) {
+
+  return songs?.find(x=> x.id === id)
+}
+export function addToRecent(id, recent, user) {
+
+  if(!recent.includes(id)) {
+    db.collection('users').doc(user.uid).update({
+      recent: firebase.firestore.FieldValue.arrayUnion(id)
+    })
+  }
+} 

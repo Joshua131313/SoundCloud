@@ -68,7 +68,7 @@ html, body {
   min-height: 100vh;
   max-height: 100vh;
   display: grid;
-  grid-template-columns: 200px 1fr 250px;
+  grid-template-columns: 180px 1fr 220px;
   grid-template-rows: 1fr 80px;
   padding: 20px;
   padding-bottom: 0;
@@ -76,7 +76,7 @@ html, body {
 }
 @media (max-width: 910px) {
  .appcont {
-   grid-template-columns: 200px 1fr
+   grid-template-columns: 180px 1fr
  }
   .activity {
     display: none
@@ -298,6 +298,19 @@ input::-webkit-inner-spin-button {
 .accordiontab .accordionsummary {
  /* box-shadow: none;
  border-radius: 0 */
+}
+.bubble {
+  border: solid 1px var(--theme-color);
+  color: var(--theme-color);
+  padding: 1px 13px;
+  border-radius: 30px;
+  font-size: 10px;
+  display: flex;
+  align-items: center
+}
+.bubble i {
+  font-size: 8px;
+  margin-right: 2px
 }
 details > summary {
   /* list-style-type: none;

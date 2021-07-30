@@ -27,6 +27,7 @@
   z-index: 1000;
   background-color: #ffffff8c
 }
+
 .playing  .dropcont  {
   display: none
 }
@@ -76,7 +77,8 @@
   gap: 10px
 }
 .absoluteplaying .audio {
-  position: relative
+  position: relative;
+  max-width: 600px;
 }
 .absoluteplaying .songinfo {
   align-items: center
@@ -108,15 +110,7 @@
 .songcontrols .theme {
   color: var(--theme-color)
 }
-.ppbtn {
-  border: solid 2px var(--theme-color);
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%
-}
+
 .vol {
   width: 20px;
   height: 20px;

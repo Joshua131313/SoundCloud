@@ -1,12 +1,13 @@
 .appbtn {
   padding: 10px;
   background-color: var(--light);
-  color: #000;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 15px;
-  gap: 10px
+  gap: 10px;
+  border: solid 1px transparent
 }
 .appbtn:active {
   transform: scale(0.96)
@@ -15,7 +16,7 @@
   flex-direction: row-reverse;
 }
 .appbtn i {
-  color: #000;
+  color: #fff;
 }
 
 .reverse i {
@@ -23,7 +24,12 @@
 }
 
 .appbtn:hover {
-  background-color: #fff;
+  background-color: transparent;
+  color: var(--theme-color);
+  border: solid 1px var(--theme-color)
+}
+.appbtn:hover i {
+  color: var(--theme-color)
 }
 .logincont .googlebtn{
   background-color: #dd4b39;

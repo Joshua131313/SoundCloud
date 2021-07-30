@@ -22,6 +22,8 @@ export const ContextApp = createContext()
       const [userinfo, setUserinfo] = useState('')
       const [created, setCreated] = useState([])
       const audio = useRef()
+      const clean = text => text.replace(/[^a-zA-Z0-9 ]/g, "");
+
       const [paused, setPaused] = useState(true)
       const songsarrays = [
         {
@@ -56,6 +58,10 @@ export const ContextApp = createContext()
         const songsdata = snap.data()
         setSongs(songsdata.songs)
       }) 
+      db.collection('songs').doc('albums').onSnapshot(snap=> {
+        const albumsdata = snap.data()
+        setAlbums(albumsdata.albums)
+      })
     }, []) 
     useEffect(()=> {
     user &&  db.collection('users').doc(user.uid).onSnapshot(snap=> {
@@ -65,7 +71,6 @@ export const ContextApp = createContext()
           time: userdata.listeningto.time,
           lastarray: userdata.listeningto.lastarray
         })
-        setAlbums(userdata.albums)
         setQueue(userdata.queue)
         setRecent(userdata.recent)
         setSaved(userdata.savedmusic)
@@ -104,7 +109,9 @@ export const ContextApp = createContext()
         setPaused,
         songsarrays,
         pathname,
-        lastarray, setLastarray
+        lastarray, 
+        setLastarray,
+        clean
       }}>
       {props.children}
   </ContextApp.Provider>

@@ -1,17 +1,24 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ContextApp } from '../../../ContextAPI'
-import { AddToFavs } from '../../../Functions'
+import { AddToFavs, getSongById } from '../../../Functions'
 import './Dropdown.css'
+import { CSSTransition } from 'react-transition-group';
+import Modal from '../Modal/Modal';
+import Addtoalbum from './Addtoalbum';
 
 const Dropdown = (props) => {
-  const {saved, user} = useContext(ContextApp)
+  const {saved, user, songs} = useContext(ContextApp)
   const {song, audio} = props
   const [dropdown, setDropdown] = useState(false)
+  const [albummodal, setAlbummodal] = useState(false)
+  const [songdetail, setSongdetail] = useState(getSongById(song, songs))
   const options = [
     {
       icon: 'fal fa-album', 
       text: 'Add to Album',
-      clickEvent: () => {}
+      clickEvent: () => {
+        setAlbummodal(true)
+      }
     },
     {
       icon: 'fal fa-long-arrow-down',
@@ -64,14 +71,29 @@ const Dropdown = (props) => {
      }
     }
   }, [dropdown])
+  useEffect(() => {
+    setSongdetail(getSongById(song, songs))
+  }, [song, songs])
   return (
+  <>
+  <Modal modal={albummodal} setModal={setAlbummodal}>
+    <Addtoalbum song={song} />
+  </Modal>
     <div onClick={(e)=> e.stopPropagation()} className={`dropcont ${dropdown?'activedrop':''}`}>
       <i onClick={()=> {setDropdown(!dropdown);}} className="fal fa-ellipsis-h"></i>
-      <div className="dropdown">
+      <CSSTransition 
+        timeout={300}
+        in={dropdown}
+        unmountOnExit
+        classNames={`dropdown`}
+       >
+      <div className="dropdown" onClick={()=> setDropdown(false)}>
           {optionsrow}
       </div>
+      </CSSTransition>
     </div> 
-    
+
+    </>
   )
 }
 export default Dropdown

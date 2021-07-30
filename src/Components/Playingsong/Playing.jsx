@@ -11,6 +11,7 @@ import { db } from '../../Fire';
 import { useLocation } from 'react-router-dom';
 import Listening from '../Reuseable/Listening/Listening';
 import Addtosaved from '../Reuseable/Addtosaved';
+import { addToRecent } from '../../Functions';
 
 const Playing = (props) => {
   const {
@@ -25,17 +26,19 @@ const Playing = (props) => {
     saved, 
     songsarrays,
     pathname,
-    setLastarray
+    setLastarray,
+    
     } = useContext(ContextApp)
 
 
-  let song = songs.find(x=> x.id === listening.song)
   const location = useLocation()
   const [value, setValue] = useState(100)
   const [progress, setProgress] = useState(0)
   const [muted, setMuted] = useState(false)
   const [songcollection, setSongcollection] = useState(songsarrays?.find(x=> x.filter === listening.lastarray)?.array)
   const [songpopup, setSongpopup] = useState(false)
+  const [song, setSong] = useState(songcollection?.find(x=> x.id === listening.song))
+  const [index, setIndex] = useState(songcollection?.findIndex(x=> x.id === listening.song))
   const determineSpeaker = () => {
     if(value === 0 || muted) {
       return 'volume-mute'
@@ -66,12 +69,10 @@ const Playing = (props) => {
     }
   }
 
-  let index = songcollection?.findIndex(x=> x.id === listening.song)
   const handleUpdate = (song) => {
     db.collection('users').doc(user.uid).update({
       listeningto: {
         song:  song.id,
-        time: 0, 
         lastarray: listening.lastarray
       }
     })
@@ -82,7 +83,7 @@ const Playing = (props) => {
     })
   }
 
-  const handlePlayNext = () => {
+  const handlePlayNext = (index) => {
     let nextsong = songcollection[index+1]
     if(nextsong) {
       handleUpdate(nextsong)
@@ -92,7 +93,7 @@ const Playing = (props) => {
       handleUpdate(firstsong)
     }
   }
-  const handlePlayPrev = () => {
+  const handlePlayPrev = (index) => {
     let prevsong = songcollection[index-1]
     if(prevsong) {
       handleUpdate(prevsong)
@@ -108,10 +109,25 @@ const Playing = (props) => {
       setProgress(aud.currentTime/aud.duration * 100)
     }
     aud.onended = () => {
-      handlePlayNext()
+      handlePlayNext(songcollection?.findIndex(x=> x.id === listening.song))
+      addToRecent(song.id, recent, user)
     }
-  
-  }, [])
+    navigator.mediaSession.setActionHandler('previoustrack', ()=> {
+      handlePlayPrev(songcollection?.findIndex(x=> x.id === listening.song)
+     )
+   })
+   navigator.mediaSession.setActionHandler('nexttrack', ()=> {
+     handlePlayNext(songcollection?.findIndex(x=> x.id === listening.song))
+   })
+   navigator.mediaSession.setActionHandler('play', async function() {
+      setPaused(false)
+      aud.play()
+    })
+    navigator.mediaSession.setActionHandler('pause', async function() {
+      setPaused(true)
+      aud.pause()
+    })
+  }, [songcollection, listening, recent, song, user, audio])
   // useEffect(()=> {
   //   if(audio.current) {
   //     let aud = audio.current
@@ -121,10 +137,15 @@ const Playing = (props) => {
   //   }
   // }, [audio])
   useEffect(()=> {
+  
     setSongcollection(songsarrays?.find(x=> x.filter === listening.lastarray)?.array)
   }, [listening, songsarrays])
-  
-
+  useEffect(()=> {
+    setSong(songcollection?.find(x=> x.id === listening.song))
+  }, [songcollection, listening])
+  useEffect(()=> {
+    setIndex(songcollection?.findIndex(x=> x.id === listening.song))
+  }, [song, songcollection])
   useEffect(()=> {
 
     if(audio.current) {
@@ -132,7 +153,8 @@ const Playing = (props) => {
       aud.volume = muted?0:value/100
     }
   }, [value, muted, location])
-  
+
+
 const [loaded, setLoaded] = useState(true)
 
 
@@ -148,14 +170,14 @@ const [loaded, setLoaded] = useState(true)
         </div>
         <div className="songcontrols">
           <i className='fal fa-redo' onClick={()=> {handleRestart()}}></i>
-            <i className='fal theme fa-backward'onClick={()=> handlePlayPrev()}></i>
+            <i className='fal theme fa-backward'onClick={()=> handlePlayPrev(index)}></i>
             <Listening song={song} dontupdate>
               {
                 ({AddtoListening})=> (
                   <i className={`ppbtn theme fal fa-${paused?'play':'pause'}`} onClick={()=> AddtoListening()}></i>          )
               }
            </Listening>
-            <i className='fal theme fa-forward' onClick={()=> handlePlayNext()}></i>
+            <i className='fal theme fa-forward' onClick={()=> handlePlayNext(index)}></i>
           <i  className='fal fa-random'></i>
         </div>
         <div className="songright">

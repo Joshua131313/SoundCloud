@@ -14,3 +14,18 @@
   flex-wrap: wrap;
   gap: 20px
 }
+.foryou h2 {
+  margin: 10px 0;
+  font-size: 18px
+}
+.recentlyplayed {
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+.recentlyplayed::-webkit-scrollbar {
+  height: 3px;
+}
+.recentlyplayed .songcard {
+  min-width: 200px;
+}

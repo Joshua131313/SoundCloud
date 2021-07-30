@@ -20,7 +20,7 @@ const Modal = (props) => {
       classNames={`${className} modal`}
       >
       <>
-      <div className="modal">
+      <div className={`modal ${className}`}>
         <i className='fal fa-times closeicon' onClick={()=> setModal(false)}></i>
        {props.children}
       </div>

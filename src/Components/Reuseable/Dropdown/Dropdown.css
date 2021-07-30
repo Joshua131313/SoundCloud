@@ -1,15 +1,15 @@
 .dropdown {
   position: absolute;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   background-color: #fff;
   border-radius: 10px;
   padding: 10px;
   gap: 10px;
-  width: 160px
-
+  width: 160px;
+  box-shadow: var(--light-shadow)
 }
 
 .dropdown .dropoption {
@@ -33,9 +33,22 @@
   opacity: 0;
   transition: all 0.3s;
   top: 70px;
-  pointer-events: none
+
 }
-.activedrop .dropdown {
+
+.dropcont .dropdown-enter-done {
   opacity: 1;
-  pointer-events: initial
+}
+.addtoalbum h2 span {
+  font-style: italic;
+  color: var(--theme-color)
+}
+.albumscol  {
+  gap: 10px;
+  margin-top: 20px;
+  max-height: 390px;
+  overflow-y: auto
+}
+.albumscol::-webkit-scrollbar {
+  width: 0
 }
